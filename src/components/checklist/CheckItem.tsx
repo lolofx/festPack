@@ -24,7 +24,7 @@ export function CheckItem({ item, checked, onToggle }: CheckItemProps) {
       role="checkbox"
       aria-checked={checked}
       tabIndex={0}
-      onKeyDown={(e) => e.key === " " && handleClick()}
+      onKeyDown={(e) => (e.key === " " || e.key === "Enter") && handleClick()}
     >
       <div className={`checkbox-metal ${checked ? "checked" : ""} ${bouncing ? "checkbox-bounce" : ""}`}>
         {checked && (
