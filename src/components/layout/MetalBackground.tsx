@@ -1,3 +1,5 @@
+import skullImg from '../../assets/skull.png';
+
 const GlowLayer = () => (
   <svg
     className="absolute inset-0 w-full h-full"
@@ -106,109 +108,16 @@ const MetalHand = ({ rotation }: { rotation: number }) => (
 const SkullLayer = () => (
   <div className="absolute inset-0 overflow-hidden">
 
-    {/* === Crâne principal === */}
-    {/* Div 1: déplace le coin TL au centre du viewport */}
-    <div style={{ position: 'absolute', top: '50%', left: '50%' }}>
-      {/* Div 2: recentre l'élément (translate statique, pas animé) */}
-      <div style={{ transform: 'translate(-50%, -50%)' }}>
-      {/* Div 3: rotation animée — ne touche pas au translate parent */}
-      <div className="metal-skull-animate">
-        <svg
-          viewBox="0 0 300 340"
-          width="260"
-          height="295"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* ===== MOHAWK ===== */}
-          {/* Spike central — pointu, effilé */}
-          <path d="M150,8 L145,58 L150,44 L155,58 Z"
-                stroke="#39ff14" strokeWidth="2" strokeLinejoin="round"/>
-          {/* Base du mohawk — touffe de poils hachurés */}
-          <path d="M128,84 L132,68 L136,76 L140,60 L144,74 L148,55 L150,44 L152,55 L156,74 L160,60 L164,76 L168,68 L172,84"
-                stroke="#39ff14" strokeWidth="1.5" strokeLinejoin="round" opacity="0.75"/>
-          {/* Hachures mohawk internes */}
-          <line x1="139" y1="72" x2="137" y2="80" stroke="#39ff14" strokeWidth="0.7" opacity="0.4"/>
-          <line x1="150" y1="62" x2="150" y2="72" stroke="#39ff14" strokeWidth="0.7" opacity="0.4"/>
-          <line x1="161" y1="72" x2="163" y2="80" stroke="#39ff14" strokeWidth="0.7" opacity="0.4"/>
-
-          {/* ===== CRANIUM — dôme organique arrondi ===== */}
-          <path d="M82,175 C65,158 60,132 62,108 C65,76 82,56 102,48 C116,42 132,38 150,38 C168,38 184,42 198,48 C218,56 235,76 238,108 C240,132 235,158 218,175 L215,200 L85,200 Z"
-                stroke="#39ff14" strokeWidth="2.2"/>
-          {/* Cranium inner — ligne de volume */}
-          <path d="M92,172 C78,158 74,136 76,114 C79,90 92,74 108,66 C120,60 134,57 150,57 C166,57 180,60 192,66 C208,74 221,90 224,114 C226,136 222,158 208,172"
-                stroke="#39ff14" strokeWidth="0.7" opacity="0.3"/>
-
-          {/* Temple hachures gauche — style gravure */}
-          <path d="M66,120 C63,130 64,143 68,155" stroke="#39ff14" strokeWidth="0.9" opacity="0.38"/>
-          <path d="M73,108 C70,120 71,135 75,148" stroke="#39ff14" strokeWidth="0.7" opacity="0.25"/>
-          <path d="M80,100 C77,112 78,128 82,142" stroke="#39ff14" strokeWidth="0.5" opacity="0.18"/>
-          {/* Temple hachures droite */}
-          <path d="M234,120 C237,130 236,143 232,155" stroke="#39ff14" strokeWidth="0.9" opacity="0.38"/>
-          <path d="M227,108 C230,120 229,135 225,148" stroke="#39ff14" strokeWidth="0.7" opacity="0.25"/>
-          <path d="M220,100 C223,112 222,128 218,142" stroke="#39ff14" strokeWidth="0.5" opacity="0.18"/>
-
-          {/* Cicatrice / fissure front */}
-          <path d="M188,74 L184,86 L190,92 L186,102" stroke="#39ff14" strokeWidth="1" opacity="0.45"/>
-
-          {/* ===== ARCADE SOURCILIÈRE ===== */}
-          <path d="M86,172 C100,160 122,155 150,156 C178,157 200,162 214,172"
-                stroke="#39ff14" strokeWidth="2.2" opacity="0.85"/>
-
-          {/* ===== ORBITES — ovales profonds, style woodcut ===== */}
-          {/* Orbite gauche */}
-          <path d="M98,192 C93,178 97,165 112,161 C127,157 143,166 144,180 C145,194 134,205 118,205 C102,205 95,204 98,192 Z"
-                stroke="#39ff14" strokeWidth="2.3"/>
-          {/* Hachures internes œil gauche */}
-          <path d="M104,182 C109,174 120,173 128,177" stroke="#39ff14" strokeWidth="0.8" opacity="0.35"/>
-          <path d="M102,190 C107,184 118,183 126,187" stroke="#39ff14" strokeWidth="0.6" opacity="0.25"/>
-
-          {/* Orbite droite */}
-          <path d="M202,192 C205,204 198,205 182,205 C166,205 155,194 156,180 C157,166 173,157 188,161 C203,165 207,178 202,192 Z"
-                stroke="#39ff14" strokeWidth="2.3"/>
-          {/* Hachures internes œil droit */}
-          <path d="M196,182 C191,174 180,173 172,177" stroke="#39ff14" strokeWidth="0.8" opacity="0.35"/>
-          <path d="M198,190 C193,184 182,183 174,187" stroke="#39ff14" strokeWidth="0.6" opacity="0.25"/>
-
-          {/* ===== CAVITÉ NASALE ===== */}
-          <path d="M150,210 Q140,230 138,238 L162,238 Q160,230 150,210 Z"
-                stroke="#39ff14" strokeWidth="1.8"/>
-
-          {/* ===== POMMETTES / JOUES ===== */}
-          <path d="M218,182 C232,190 240,204 236,220 C232,230 222,236 210,238"
-                stroke="#39ff14" strokeWidth="1.4" opacity="0.5"/>
-          <path d="M82,182 C68,190 60,204 64,220 C68,230 78,236 90,238"
-                stroke="#39ff14" strokeWidth="1.4" opacity="0.5"/>
-
-          {/* ===== GENCIVE SUPÉRIEURE ===== */}
-          <path d="M88,244 C102,236 122,232 150,232 C178,232 198,236 212,244"
-                stroke="#39ff14" strokeWidth="1.6"/>
-
-          {/* ===== DENTS INDIVIDUELLES — 8 dents ===== */}
-          <rect x="90"  y="246" width="14" height="19" rx="3.5" stroke="#39ff14" strokeWidth="1.5"/>
-          <rect x="106" y="246" width="14" height="22" rx="3.5" stroke="#39ff14" strokeWidth="1.5"/>
-          <rect x="122" y="246" width="14" height="24" rx="3.5" stroke="#39ff14" strokeWidth="1.5"/>
-          <rect x="138" y="246" width="14" height="25" rx="3.5" stroke="#39ff14" strokeWidth="1.5"/>
-          <rect x="154" y="246" width="14" height="25" rx="3.5" stroke="#39ff14" strokeWidth="1.5"/>
-          <rect x="170" y="246" width="14" height="24" rx="3.5" stroke="#39ff14" strokeWidth="1.5"/>
-          <rect x="186" y="246" width="14" height="22" rx="3.5" stroke="#39ff14" strokeWidth="1.5"/>
-          <rect x="202" y="246" width="14" height="19" rx="3.5" stroke="#39ff14" strokeWidth="1.5"/>
-
-          {/* ===== MÂCHOIRE INFÉRIEURE ===== */}
-          <path d="M78,272 C80,294 96,308 122,314 L178,314 C204,308 220,294 222,272"
-                stroke="#39ff14" strokeWidth="2.2"/>
-          {/* Hachures menton */}
-          <path d="M116,310 C132,318 168,318 184,310" stroke="#39ff14" strokeWidth="0.9" opacity="0.35"/>
-          {/* Dents inférieures partielles */}
-          <line x1="100" y1="272" x2="102" y2="290" stroke="#39ff14" strokeWidth="1.2"/>
-          <line x1="118" y1="272" x2="120" y2="296" stroke="#39ff14" strokeWidth="1.2"/>
-          <line x1="136" y1="272" x2="137" y2="298" stroke="#39ff14" strokeWidth="1.2"/>
-          <line x1="154" y1="272" x2="154" y2="298" stroke="#39ff14" strokeWidth="1.2"/>
-          <line x1="172" y1="272" x2="171" y2="296" stroke="#39ff14" strokeWidth="1.2"/>
-          <line x1="190" y1="272" x2="188" y2="290" stroke="#39ff14" strokeWidth="1.2"/>
-        </svg>
-      </div>
-      </div>
+    {/* === Crâne principal — image PNG avec blend mode screen === */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <img
+        src={skullImg}
+        alt=""
+        width="380"
+        height="380"
+        className="metal-skull-animate"
+        style={{ mixBlendMode: 'screen', opacity: 0.22 }}
+      />
     </div>
 
     {/* === Triangles de coin === */}
