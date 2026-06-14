@@ -66,3 +66,49 @@
 .checkbox-bounce {
   animation: check-bounce 0.2s ease-out;
 }
+
+/* === MetalBackground animations === */
+
+@media (prefers-reduced-motion: no-preference) {
+  .metal-skull-animate {
+    animation:
+      skull-spin  25s linear       infinite,
+      skull-pulse  3s ease-in-out  infinite;
+    transform-origin: center center;
+    will-change: transform, opacity;
+  }
+
+  .metal-corner-float {
+    animation: corner-float 5s ease-in-out infinite;
+  }
+
+  .metal-grunge-animate {
+    animation: grunge-breathe 6s ease-in-out infinite;
+  }
+}
+
+@keyframes skull-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes skull-pulse {
+  0%, 100% {
+    opacity: 0.22;
+    filter: drop-shadow(0 0 4px #39ff14);
+  }
+  50% {
+    opacity: 0.32;
+    filter: drop-shadow(0 0 14px #39ff14) drop-shadow(0 0 28px #39ff1450);
+  }
+}
+
+@keyframes corner-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes grunge-breathe {
+  0%, 100% { opacity: 0.03; }
+  50%       { opacity: 0.07; }
+}
