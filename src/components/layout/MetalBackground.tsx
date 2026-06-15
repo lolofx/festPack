@@ -62,8 +62,10 @@ const SkullLayer = () => (
       src={guitarImg}
       alt=""
       width="90"
-      className="absolute bottom-0 left-0"
       style={{
+        position: 'absolute',
+        bottom: '50px',
+        left: '5px',
         filter: GUITAR_FILTER,
         opacity: 0.18,
         mixBlendMode: 'screen',
@@ -75,8 +77,10 @@ const SkullLayer = () => (
       src={guitarImg}
       alt=""
       width="90"
-      className="absolute bottom-0 right-0"
       style={{
+        position: 'absolute',
+        bottom: '50px',
+        right: '5px',
         filter: GUITAR_FILTER,
         opacity: 0.18,
         mixBlendMode: 'screen',
