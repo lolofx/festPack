@@ -54,26 +54,17 @@ const SkullLayer = () => (
       />
     </div>
 
-    {/* === Triangles de coin === */}
-    {/* Top-left fire */}
-    <svg className="absolute top-0 left-0" width="80" height="80" viewBox="0 0 80 80" style={{ opacity: 0.15 }}>
-      <polygon points="0,0 80,0 0,80" fill="#ff6600" />
-    </svg>
+    {/* === Triangles de coin (bas uniquement — les coins haut sont sous le header sticky) === */}
     {/* Bottom-right blood */}
-    <svg className="absolute bottom-0 right-0" width="80" height="80" viewBox="0 0 80 80" style={{ opacity: 0.12 }}>
-      <polygon points="80,80 0,80 80,0" fill="#cc0000" />
+    <svg className="absolute bottom-0 right-0" width="100" height="100" viewBox="0 0 100 100" style={{ opacity: 0.15 }}>
+      <polygon points="100,100 0,100 100,0" fill="#cc0000" />
     </svg>
-    {/* Top-right blood (small) */}
-    <svg className="absolute top-0 right-0" width="50" height="50" viewBox="0 0 50 50" style={{ opacity: 0.08 }}>
-      <polygon points="50,0 50,50 0,0" fill="#cc0000" />
-    </svg>
-    {/* Bottom-left fire (small) */}
-    <svg className="absolute bottom-0 left-0" width="50" height="50" viewBox="0 0 50 50" style={{ opacity: 0.08 }}>
-      <polygon points="0,50 0,0 50,50" fill="#ff6600" />
+    {/* Bottom-left fire */}
+    <svg className="absolute bottom-0 left-0" width="100" height="100" viewBox="0 0 100 100" style={{ opacity: 0.15 }}>
+      <polygon points="0,100 0,0 100,100" fill="#ff6600" />
     </svg>
 
-    {/* Ligne neon top et bottom */}
-    <div className="absolute top-0 left-0 right-0 h-px" style={{ background: '#39ff14', opacity: 0.25 }} />
+    {/* Ligne neon bottom uniquement */}
     <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: '#39ff14', opacity: 0.25 }} />
   </div>
 );
