@@ -67,7 +67,7 @@ const SkullLayer = () => (
         filter: GUITAR_FILTER,
         opacity: 0.18,
         mixBlendMode: 'screen',
-        transformOrigin: 'bottom center',
+        transformOrigin: 'bottom left',
         transform: 'rotate(35deg)',
       }}
     />
@@ -80,7 +80,7 @@ const SkullLayer = () => (
         filter: GUITAR_FILTER,
         opacity: 0.18,
         mixBlendMode: 'screen',
-        transformOrigin: 'bottom center',
+        transformOrigin: 'bottom right',
         transform: 'rotate(-35deg)',
       }}
     />
