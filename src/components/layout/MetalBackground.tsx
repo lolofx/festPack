@@ -1,5 +1,4 @@
 import skullImg from '../../assets/skull.webp';
-import metalhandImg from '../../assets/metalhand.svg';
 
 const GlowLayer = () => (
   <svg
@@ -40,20 +39,6 @@ const GrungeLayer = () => (
   </svg>
 );
 
-const MetalHand = ({ rotation }: { rotation: number }) => (
-  <img
-    src={metalhandImg}
-    alt=""
-    width="90"
-    height="90"
-    style={{
-      transform: `rotate(${rotation}deg)`,
-      filter: 'invert(1) sepia(1) saturate(5) hue-rotate(60deg)',
-      mixBlendMode: 'screen',
-    }}
-  />
-);
-
 const SkullLayer = () => (
   <div className="absolute inset-0 overflow-hidden">
 
@@ -86,20 +71,6 @@ const SkullLayer = () => (
     <svg className="absolute bottom-0 left-0" width="50" height="50" viewBox="0 0 50 50" style={{ opacity: 0.08 }}>
       <polygon points="0,50 0,0 50,50" fill="#ff6600" />
     </svg>
-
-    {/* === Mini crânes de coin (opacity 0.08, rotations fixes) === */}
-    <div className="absolute top-2 left-2 metal-corner-float" style={{ opacity: 0.08, animationDelay: '0s' }}>
-      <MetalHand rotation={0} />
-    </div>
-    <div className="absolute top-2 right-2 metal-corner-float" style={{ opacity: 0.08, animationDelay: '1.5s' }}>
-      <MetalHand rotation={90} />
-    </div>
-    <div className="absolute bottom-2 right-2 metal-corner-float" style={{ opacity: 0.08, animationDelay: '3s' }}>
-      <MetalHand rotation={180} />
-    </div>
-    <div className="absolute bottom-2 left-2 metal-corner-float" style={{ opacity: 0.08, animationDelay: '4.5s' }}>
-      <MetalHand rotation={270} />
-    </div>
 
     {/* Ligne neon top et bottom */}
     <div className="absolute top-0 left-0 right-0 h-px" style={{ background: '#39ff14', opacity: 0.25 }} />

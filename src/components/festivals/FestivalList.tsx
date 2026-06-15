@@ -4,6 +4,18 @@ import { MetalHeader } from "../layout/MetalHeader";
 import { FestivalCard } from "./FestivalCard";
 import { CreateFestivalModal } from "./CreateFestivalModal";
 import { useFestivals } from "../../hooks/useFestivals";
+import metalhandImg from "../../assets/metalhand.svg";
+
+const MetalHandIcon = ({ size = 28, className = "" }: { size?: number; className?: string }) => (
+  <img
+    src={metalhandImg}
+    alt=""
+    width={size}
+    height={size}
+    className={className}
+    style={{ filter: 'invert(1) sepia(1) saturate(5) hue-rotate(60deg)', display: 'inline-block' }}
+  />
+);
 
 export function FestivalList() {
   const { festivals, createFestival, deleteFestival } = useFestivals();
@@ -12,7 +24,7 @@ export function FestivalList() {
   return (
     <div className="min-h-screen">
       <MetalHeader
-        title="FestPack 🤘"
+        title={<>FestPack <MetalHandIcon size={22} className="align-middle" /></>}
         action={
           <button
             onClick={() => setShowModal(true)}
@@ -27,7 +39,7 @@ export function FestivalList() {
       <main className="max-w-2xl mx-auto px-4 py-6">
         {festivals.length === 0 ? (
           <div className="text-center py-20">
-            <p className="font-metal text-5xl text-metal-border mb-4">🤘</p>
+            <MetalHandIcon size={80} className="mb-4 mx-auto opacity-40" />
             <p className="text-metal-silver font-body text-sm uppercase tracking-widest mb-6">
               Aucun festival prévu
             </p>
