@@ -35,15 +35,20 @@ interface CategorySectionProps {
   onToggle: (id: string) => void;
   festivalId: string;
   filter: "all" | "todo" | "done";
+  collapseSignal?: { v: number; collapsed: boolean } | null;
 }
 
-export function CategorySection({ category, checkedItems, onToggle, festivalId, filter }: CategorySectionProps) {
+export function CategorySection({ category, checkedItems, onToggle, festivalId, filter, collapseSignal }: CategorySectionProps) {
   const storageKey = STORAGE_KEYS.collapsed(festivalId);
 
   const [collapsed, setCollapsed] = useState<boolean>(() => {
     const stored = localStorageAdapter.get<string[]>(storageKey) ?? [];
     return stored.includes(category.id);
   });
+
+  useEffect(() => {
+    if (collapseSignal != null) setCollapsed(collapseSignal.collapsed);
+  }, [collapseSignal]);
 
   useEffect(() => {
     const stored = localStorageAdapter.get<string[]>(storageKey) ?? [];
