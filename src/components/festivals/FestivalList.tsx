@@ -24,7 +24,7 @@ export function FestivalList() {
   return (
     <div className="min-h-screen">
       <MetalHeader
-        title={<>FestPack <MetalHandIcon size={22} className="align-middle" /></>}
+        title={<>FestPack <MetalHandIcon size={32} className="align-middle" /></>}
         action={
           <button
             onClick={() => setShowModal(true)}

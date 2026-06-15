@@ -140,8 +140,8 @@ export function CreateFestivalModal({ onClose, onCreate }: CreateFestivalModalPr
               <img
                 src={metalhandImg}
                 alt=""
-                width={18}
-                height={18}
+                width={24}
+                height={24}
                 style={{ filter: 'invert(1) sepia(1) saturate(5) hue-rotate(60deg)', display: 'inline-block' }}
               />
             </button>
