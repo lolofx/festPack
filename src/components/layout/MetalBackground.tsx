@@ -1,4 +1,4 @@
-import skullImg from '../../assets/skull.png';
+import skullImg from '../../assets/skull.webp';
 import metalhandImg from '../../assets/metalhand.svg';
 
 const GlowLayer = () => (
