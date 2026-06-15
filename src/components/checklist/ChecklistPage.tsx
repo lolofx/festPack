@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, ChevronsDown, ChevronsUp } from "lucide-react";
 import { MetalHeader } from "../layout/MetalHeader";
 import { ProgressBar } from "./ProgressBar";
 import { CategorySection } from "./CategorySection";
@@ -21,6 +21,11 @@ export function ChecklistPage() {
   const [filter, setFilter] = useState<Filter>(
     () => (sessionStorage.getItem("festpack:filter") as Filter) ?? "all"
   );
+
+  const [collapseSignal, setCollapseSignal] = useState<{ v: number; collapsed: boolean } | null>(null);
+  const handleToggleAll = () =>
+    setCollapseSignal((prev) => ({ v: (prev?.v ?? 0) + 1, collapsed: !(prev?.collapsed ?? false) }));
+  const allCollapsed = collapseSignal?.collapsed ?? false;
 
   const { checkedItems, toggleItem, resetChecklist } = useChecklist(id ?? "");
 
@@ -55,20 +60,29 @@ export function ChecklistPage() {
 
       <div className="max-w-2xl mx-auto px-4 pt-4 pb-2 sticky top-14 bg-metal-bg z-40 border-b border-metal-border/50">
         <ProgressBar checked={checkedItems.length} total={TOTAL_ITEMS} className="mb-3" />
-        <div className="flex border border-metal-border mb-3">
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              onClick={() => handleFilterChange(f)}
-              className={`flex-1 py-2 text-xs font-body uppercase tracking-widest transition-all ${
-                filter === f
-                  ? "bg-metal-neon text-metal-bg font-semibold"
-                  : "text-metal-silver hover:text-white"
-              }`}
-            >
-              {FILTER_LABELS[f]}
-            </button>
-          ))}
+        <div className="flex gap-2 mb-3 items-stretch">
+          <div className="flex border border-metal-border flex-1">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                onClick={() => handleFilterChange(f)}
+                className={`flex-1 py-2 text-xs font-body uppercase tracking-widest transition-all ${
+                  filter === f
+                    ? "bg-metal-neon text-metal-bg font-semibold"
+                    : "text-metal-silver hover:text-white"
+                }`}
+              >
+                {FILTER_LABELS[f]}
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={handleToggleAll}
+            title={allCollapsed ? "Tout étendre" : "Tout réduire"}
+            className="border border-metal-border px-2.5 text-metal-silver hover:text-metal-neon hover:border-metal-neon transition-colors"
+          >
+            {allCollapsed ? <ChevronsDown size={15} /> : <ChevronsUp size={15} />}
+          </button>
         </div>
       </div>
 
@@ -81,6 +95,7 @@ export function ChecklistPage() {
             onToggle={toggleItem}
             festivalId={id!}
             filter={filter}
+            collapseSignal={collapseSignal}
           />
         ))}
       </main>

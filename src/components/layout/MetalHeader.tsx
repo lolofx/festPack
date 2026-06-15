@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 interface MetalHeaderProps {
-  title?: string;
+  title?: React.ReactNode;
   backHref?: string;
   action?: React.ReactNode;
 }

@@ -28,14 +28,15 @@ export function CheckItem({ item, checked, onToggle }: CheckItemProps) {
     >
       <div className={`checkbox-metal ${checked ? "checked" : ""} ${bouncing ? "checkbox-bounce" : ""}`}>
         {checked && (
-          <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
-            <path
-              d="M1 5L4.5 8.5L11 1"
-              stroke="#39ff14"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* os 1 : diagonale haut-gauche → bas-droit */}
+            <line x1="2" y1="2" x2="12" y2="12" stroke="#39ff14" strokeWidth="1.8" strokeLinecap="round" />
+            <circle cx="1.8" cy="1.8" r="2" stroke="#39ff14" strokeWidth="1.3" />
+            <circle cx="12.2" cy="12.2" r="2" stroke="#39ff14" strokeWidth="1.3" />
+            {/* os 2 : diagonale haut-droit → bas-gauche */}
+            <line x1="12" y1="2" x2="2" y2="12" stroke="#39ff14" strokeWidth="1.8" strokeLinecap="round" />
+            <circle cx="12.2" cy="1.8" r="2" stroke="#39ff14" strokeWidth="1.3" />
+            <circle cx="1.8" cy="12.2" r="2" stroke="#39ff14" strokeWidth="1.3" />
           </svg>
         )}
       </div>

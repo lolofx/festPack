@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X } from "lucide-react";
+import metalhandImg from "../../assets/metalhand.svg";
 
 const EMOJI_OPTIONS = ["🤘", "🎸", "🔥", "💀", "⚡", "🎶", "🏕️", "🎵"];
 
@@ -134,8 +135,15 @@ export function CreateFestivalModal({ onClose, onCreate }: CreateFestivalModalPr
             <button type="button" onClick={onClose} className="btn-ghost flex-1">
               Annuler
             </button>
-            <button type="submit" className="btn-metal flex-1">
-              Créer 🤘
+            <button type="submit" className="btn-metal flex-1 flex items-center justify-center gap-2">
+              Créer
+              <img
+                src={metalhandImg}
+                alt=""
+                width={24}
+                height={24}
+                style={{ filter: 'invert(1) sepia(1) saturate(5) hue-rotate(60deg)', display: 'inline-block' }}
+              />
             </button>
           </div>
         </form>
