@@ -1,4 +1,7 @@
 import skullImg from '../../assets/skull.webp';
+import guitarImg from '../../assets/guitar-left.svg';
+
+const GUITAR_FILTER = 'invert(1) sepia(1) saturate(5) hue-rotate(60deg)';
 
 const GlowLayer = () => (
   <svg
@@ -54,15 +57,33 @@ const SkullLayer = () => (
       />
     </div>
 
-    {/* === Triangles de coin (bas uniquement — les coins haut sont sous le header sticky) === */}
-    {/* Bottom-right blood */}
-    <svg className="absolute bottom-0 right-0" width="100" height="100" viewBox="0 0 100 100" style={{ opacity: 0.15 }}>
-      <polygon points="100,100 0,100 100,0" fill="#cc0000" />
-    </svg>
-    {/* Bottom-left fire */}
-    <svg className="absolute bottom-0 left-0" width="100" height="100" viewBox="0 0 100 100" style={{ opacity: 0.15 }}>
-      <polygon points="0,100 0,0 100,100" fill="#ff6600" />
-    </svg>
+    {/* === Guitares de coin (bas gauche et bas droit) === */}
+    <img
+      src={guitarImg}
+      alt=""
+      width="90"
+      className="absolute bottom-0 left-0"
+      style={{
+        filter: GUITAR_FILTER,
+        opacity: 0.18,
+        mixBlendMode: 'screen',
+        transformOrigin: 'bottom left',
+        transform: 'rotate(-10deg)',
+      }}
+    />
+    <img
+      src={guitarImg}
+      alt=""
+      width="90"
+      className="absolute bottom-0 right-0"
+      style={{
+        filter: GUITAR_FILTER,
+        opacity: 0.18,
+        mixBlendMode: 'screen',
+        transformOrigin: 'bottom right',
+        transform: 'rotate(10deg)',
+      }}
+    />
 
     {/* Ligne neon bottom uniquement */}
     <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: '#39ff14', opacity: 0.25 }} />
