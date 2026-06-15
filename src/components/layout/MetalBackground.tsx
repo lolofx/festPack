@@ -1,5 +1,5 @@
 import skullImg from '../../assets/skull.webp';
-import guitarImg from '../../assets/guitar-left.svg';
+import guitarImg from '../../assets/guitar.svg';
 
 const GUITAR_FILTER = 'invert(1) sepia(1) saturate(5) hue-rotate(60deg)';
 
@@ -67,8 +67,8 @@ const SkullLayer = () => (
         filter: GUITAR_FILTER,
         opacity: 0.18,
         mixBlendMode: 'screen',
-        transformOrigin: 'bottom left',
-        transform: 'rotate(-10deg)',
+        transformOrigin: 'bottom center',
+        transform: 'rotate(35deg)',
       }}
     />
     <img
@@ -80,8 +80,8 @@ const SkullLayer = () => (
         filter: GUITAR_FILTER,
         opacity: 0.18,
         mixBlendMode: 'screen',
-        transformOrigin: 'bottom right',
-        transform: 'rotate(10deg)',
+        transformOrigin: 'bottom center',
+        transform: 'rotate(-35deg)',
       }}
     />
 
