@@ -5,10 +5,13 @@
 @tailwind utilities;
 
 @layer base {
-  html, body {
+
+  html,
+  body {
     @apply bg-metal-bg text-white font-body;
     -webkit-tap-highlight-color: transparent;
   }
+
   #root {
     @apply min-h-screen;
   }
@@ -16,51 +19,54 @@
 
 @layer components {
   .btn-metal {
-    @apply bg-metal-surface border border-metal-neon text-metal-neon font-body font-semibold
-           px-4 py-2 uppercase tracking-widest text-sm
-           hover:bg-metal-neon hover:text-metal-bg
-           active:scale-95
-           transition-all duration-200 shadow-neon cursor-pointer;
+    @apply bg-metal-surface border border-metal-neon text-metal-neon font-body font-semibold px-4 py-2 uppercase tracking-widest text-sm hover:bg-metal-neon hover:text-metal-bg active:scale-95 transition-all duration-200 shadow-neon cursor-pointer;
   }
+
   .btn-fire {
-    @apply bg-metal-surface border border-metal-fire text-metal-fire font-body font-semibold
-           px-4 py-2 uppercase tracking-widest text-sm
-           hover:bg-metal-fire hover:text-metal-bg
-           active:scale-95
-           transition-all duration-200 shadow-fire cursor-pointer;
+    @apply bg-metal-surface border border-metal-fire text-metal-fire font-body font-semibold px-4 py-2 uppercase tracking-widest text-sm hover:bg-metal-fire hover:text-metal-bg active:scale-95 transition-all duration-200 shadow-fire cursor-pointer;
   }
+
   .btn-ghost {
-    @apply text-metal-silver font-body font-semibold
-           px-4 py-2 uppercase tracking-widest text-sm
-           hover:text-white transition-colors duration-200 cursor-pointer;
+    @apply text-metal-silver font-body font-semibold px-4 py-2 uppercase tracking-widest text-sm hover:text-white transition-colors duration-200 cursor-pointer;
   }
+
   .card-metal {
-    @apply bg-metal-surface border border-metal-border
-           hover:border-metal-neon transition-colors duration-200;
+    @apply bg-metal-surface border border-metal-border hover:border-metal-neon transition-colors duration-200;
   }
+
   .check-item {
-    @apply flex items-start gap-3 py-2.5 border-b border-metal-border/30
-           cursor-pointer select-none;
+    @apply flex items-start gap-3 py-2.5 border-b border-metal-border/30 cursor-pointer select-none;
   }
+
   .checkbox-metal {
-    @apply w-5 h-5 border-2 border-metal-silver flex-shrink-0 mt-0.5
-           flex items-center justify-center
-           transition-all duration-150;
+    @apply w-5 h-5 border-2 border-metal-silver flex-shrink-0 mt-0.5 flex items-center justify-center transition-all duration-150;
   }
+
   .checkbox-metal.checked {
     @apply border-metal-neon bg-metal-neon/20;
   }
+
   .badge-optional {
-    @apply text-xs text-metal-silver border border-metal-border px-1.5 py-0.5
-           uppercase tracking-wider font-body flex-shrink-0;
+    @apply text-xs text-metal-silver border border-metal-border px-1.5 py-0.5 uppercase tracking-wider font-body flex-shrink-0;
   }
 }
 
 @keyframes check-bounce {
-  0%   { transform: scale(1); }
-  40%  { transform: scale(0.85); }
-  70%  { transform: scale(1.15); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(0.85);
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .checkbox-bounce {
@@ -72,8 +78,8 @@
 @media (prefers-reduced-motion: no-preference) {
   .metal-skull-animate {
     animation:
-      skull-spin  25s linear       infinite,
-      skull-pulse  3s ease-in-out  infinite;
+      skull-spin 25s linear infinite,
+      skull-pulse 3s ease-in-out infinite;
     transform-origin: center center;
     will-change: transform, opacity;
   }
@@ -87,16 +93,19 @@
   }
 }
 
-@keyframes skull-spin {
+/* @keyframes skull-spin {
   from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
+  to   { transform: rotate(0deg); }
+} */
 
 @keyframes skull-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.22;
     filter: drop-shadow(0 0 4px #39ff14);
   }
+
   50% {
     opacity: 0.32;
     filter: drop-shadow(0 0 14px #39ff14) drop-shadow(0 0 28px #39ff1450);
@@ -104,11 +113,25 @@
 }
 
 @keyframes corner-float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes grunge-breathe {
-  0%, 100% { opacity: 0.03; }
-  50%       { opacity: 0.07; }
+
+  0%,
+  100% {
+    opacity: 0.03;
+  }
+
+  50% {
+    opacity: 0.07;
+  }
 }

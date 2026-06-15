@@ -10,8 +10,8 @@ const GlowLayer = () => (
     preserveAspectRatio="none"
   >
     <defs>
-      <filter id="glow-blur">
-        <feGaussianBlur stdDeviation="60" />
+      <filter id="glow-blur" x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur stdDeviation="80" />
       </filter>
     </defs>
     <ellipse cx="60%" cy="40%" rx="300" ry="200" fill="#39ff14" opacity="0.06" filter="url(#glow-blur)" />
@@ -24,18 +24,17 @@ const GrungeLayer = () => (
   <svg
     className="absolute inset-0 w-full h-full metal-grunge-animate"
     xmlns="http://www.w3.org/2000/svg"
-    style={{ opacity: 0.04 }}
+    style={{ opacity: 0.05, filter: 'blur(2px)' }}
   >
     <defs>
-      <pattern id="grunge-tile" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-        <line x1="0" y1="40" x2="40" y2="0" stroke="#39ff14" strokeWidth="0.5" opacity="0.6" />
-        <line x1="-10" y1="30" x2="30" y2="-10" stroke="#39ff14" strokeWidth="0.3" opacity="0.4" />
-        <circle cx="8" cy="8" r="1" fill="#39ff14" opacity="0.5" />
-        <circle cx="25" cy="30" r="0.8" fill="#ff6600" opacity="0.4" />
-        <circle cx="35" cy="12" r="0.7" fill="#39ff14" opacity="0.3" />
-        <circle cx="15" cy="35" r="1" fill="#39ff14" opacity="0.3" />
-        <line x1="5" y1="20" x2="12" y2="20" stroke="#39ff14" strokeWidth="0.5" opacity="0.3" />
-        <line x1="28" y1="6" x2="38" y2="6" stroke="#ff6600" strokeWidth="0.4" opacity="0.25" />
+      <pattern id="grunge-tile" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="120" x2="120" y2="0" stroke="#39ff14" strokeWidth="0.5" opacity="0.5" />
+        <line x1="20" y1="100" x2="100" y2="20" stroke="#39ff14" strokeWidth="0.3" opacity="0.3" />
+        <circle cx="20" cy="20" r="1.5" fill="#39ff14" opacity="0.4" />
+        <circle cx="70" cy="85" r="1.2" fill="#ff6600" opacity="0.35" />
+        <circle cx="95" cy="35" r="1" fill="#39ff14" opacity="0.3" />
+        <circle cx="40" cy="95" r="1.5" fill="#39ff14" opacity="0.25" />
+        <circle cx="55" cy="55" r="0.8" fill="#ff6600" opacity="0.2" />
       </pattern>
     </defs>
     <rect width="100%" height="100%" fill="url(#grunge-tile)" />
@@ -64,8 +63,8 @@ const SkullLayer = () => (
       width="90"
       style={{
         position: 'absolute',
-        bottom: '50px',
-        left: '5px',
+        bottom: '60px',
+        left: '-8px',
         filter: GUITAR_FILTER,
         opacity: 0.18,
         mixBlendMode: 'screen',
@@ -80,7 +79,7 @@ const SkullLayer = () => (
       style={{
         position: 'absolute',
         bottom: '50px',
-        right: '5px',
+        right: '8px',
         filter: GUITAR_FILTER,
         opacity: 0.18,
         mixBlendMode: 'screen',
